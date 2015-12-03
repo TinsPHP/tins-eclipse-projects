@@ -1,0 +1,62 @@
+<project name="perpareMerge" default="all" basedir="../">
+
+    <target name="all" depends="common,parser,typechecker,translators,compiler,online-demo">
+    </target>
+    <target name="from.typechecker" depends="typechecker,translators,compiler,online-demo">
+    </target>
+    <target name="from.translators" depends="translators,compiler,online-demo">
+    </target>
+    <target name="from.compiler" depends="compiler,online-demo">
+    </target>
+    
+    <target name="common">
+        <subant>
+            <target name="clean"/>
+            <target name="build"/>
+            <fileset dir="${basedir}/tsphp-common" includes="build.xml"/>
+        </subant>
+    </target>
+    
+    <target name="parser">
+        <subant>
+            <target name="cp.all"/>
+            <target name="clean"/>
+            <target name="build"/>
+            <fileset dir="${basedir}/tsphp-parser" includes="build.xml"/>
+        </subant>
+    </target>
+    
+    <target name="typechecker">
+        <subant>
+            <target name="cp.all"/>
+            <target name="clean"/>
+            <target name="build"/>
+            <fileset dir="${basedir}/tsphp-typechecker" includes="build.xml"/>
+        </subant>
+    </target>
+    <target name="translators">
+        <subant>
+            <target name="cp.all"/>
+            <target name="clean"/>
+            <target name="build"/>
+            <fileset dir="${basedir}/tsphp-translators-php54" includes="build.xml"/>
+        </subant>
+    </target>
+    <target name="compiler">
+        <subant>
+            <target name="cp.all"/>
+            <target name="clean"/>
+            <target name="build"/>
+            <fileset dir="${basedir}/tsphp" includes="build.xml"/>
+        </subant>
+    </target>
+    <target name="online-demo">
+        <subant>
+            <target name="cp.all"/>
+            <target name="clean"/>
+            <target name="build"/>
+            <fileset dir="${basedir}/tsphp-online-demo" includes="build.xml"/>
+        </subant>
+    </target>
+    
+</project>
